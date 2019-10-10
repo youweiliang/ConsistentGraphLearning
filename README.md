@@ -4,6 +4,8 @@ This repository contains the MATLAB code for DGF and SGF introduced in the follo
 
 	Consistency Meets Inconsistency: A Unified Graph Learning Framework for Multi-view Clustering (ICDM 2019) 
 
+Before getting started, add some helper files to MATLAB path by `addpath('MinMaxSelection')` in MATLAB command window.
+
 ### Example usage
 ```MATLAB
 load('data\handwritten.mat');
