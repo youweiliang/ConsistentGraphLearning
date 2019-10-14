@@ -1,7 +1,7 @@
 function [nmi, label] = DGF(data, truth, knn, beta, gamma, tol, tol2)
-% Use distance graph fusion (DGF) algorithm to perform clustering.
+% Use distance graph fusion (DGF) algorithm to perform multi-view clustering.
 % Inputs:
-%   data - a cell matrix which contains v data feature matrix with each row being an instance
+%   data - a cell matrix which contains some feature matrices with each row being an instance
 %   truth - a column vector, the target label for all instances
 %   knn - number of k-nearest neighbors (set knn=0 if using fully connected graph)
 %   beta, gamma - hyperparameters for the algorithm
@@ -22,8 +22,8 @@ if nargin < 6
     tol2 = 1e-2;
 end
 self_b = beta; cross_b = gamma;
-v = length(data);
-distance = cell(1, v);  % number of views
+v = length(data);  % number of views
+distance = cell(1, v);  
 original_distance = cell(1, v);
 idx = cell(1, v);
 n = length(truth);
@@ -33,7 +33,7 @@ knn_idx = false(n);
 
 for i=1:v
     try
-        s = sprintf('dist%d.mat', i); % read the saved weight matrix
+        s = sprintf('dist%d.mat', i); % try to read the weight matrix (if saved previously)
         load(s)
     catch
         [~, W] = make_affinity_matrix(data{i}, 'euclidean');
@@ -72,7 +72,7 @@ end
 
 % do kNN again
 com_a = kNN(affinity_matrix, knn);
-[label] = SpectralClustering(com_a, numClust, 3);
+[label] = SpectralClustering(com_a, numClust, 3);  % obtain lable for each instance, label # starts from 1
 nmi = NMImax(truth, label);
 fprintf('knn:%2d, beta:%1.0e, gamma:%1.0e, NMI: %.3f\n', knn, self_b, cross_b, nmi)
 
