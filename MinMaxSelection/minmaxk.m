@@ -54,7 +54,7 @@ if dim<1 || dim>nd
 end
 
 % Will be used for sorting
-if isequal(mexfun,@minkmex)
+if isequal(mexfun,@mink_newmex)
     smode='ascend';
 else
     smode='descend';

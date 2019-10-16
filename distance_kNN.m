@@ -1,5 +1,5 @@
 function [A, idx] = distance_kNN(B, knn)
-[A, idx] = mink(B, knn, 2, 'sorting', false);
+[A, idx] = mink_new(B, knn, 2, 'sorting', false);
 n = size(A, 1);
 
 % adjacency_matrix = zeros(n,n);

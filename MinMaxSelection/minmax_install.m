@@ -12,7 +12,7 @@ oldpath = cd(path);
 arch=computer('arch');
 mexopts = {'-v' '-O' ['-' arch]};
 % 64-bit platform
-if ~isempty(strfind(computer(),'64'))
+if contains(computer(),'64')
     mexopts(end+1) = {'-largeArrayDims'};
 end
 
@@ -43,8 +43,8 @@ mex(mexopts{:},'inplacecolumnmex.c');
 mex(mexopts{:},'releaseinplace.c');
 
 % Mex MIN/MAX functions
-mex(mexopts{:},'minkmex.c');
-mex(mexopts{:},'maxkmex.c');
+mex(mexopts{:},'mink_newmex.c');
+mex(mexopts{:},'maxk_newmex.c');
 
 cd(oldpath);
 

@@ -1,5 +1,5 @@
 function [A, idx] = kNN(B, knn)
-[A, idx] = maxk(B, knn, 2, 'sorting', false);
+[A, idx] = maxk_new(B, knn, 2, 'sorting', false);
 n = size(A, 1);
 
 % adjacency_matrix = zeros(n,n);

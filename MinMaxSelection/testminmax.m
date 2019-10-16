@@ -5,8 +5,8 @@
 clear
 
 try
-    minkmex(1,1);
-    minkmex(1,1);
+    mink_newmex(1,1);
+    mink_newmex(1,1);
 catch
     minmax_install();
 end
@@ -25,11 +25,11 @@ for i=1:ntest
     list=rand(1,n);
     
     tic
-    mn=mink(list,k);
+    mn=mink_new(list,k);
     tmink(i)=toc;
     
     tic
-    mx=maxk(list,k);
+    mx=maxk_new(list,k);
     tmaxk(i)=toc;
     
     tic
