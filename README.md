@@ -19,6 +19,9 @@ knn=15; beta=1e-6; gamma=1e1;
 [nmi, label] = DGF(X, Y, knn, beta, gamma);
 ```
 
+### Multi-view Data
+More multi-view data are available on [Google Drive](https://drive.google.com/drive/folders/1vzJ19eGy7sAyLTFtM4IWkKzZhFJsi134?usp=sharing "multi-view data").
+
 
 ### Citation
 If you find this algorithm useful in your research, please consider citing:
