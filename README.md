@@ -4,6 +4,9 @@ This repository contains the MATLAB code for DGF and SGF introduced in the follo
 
 	Consistency Meets Inconsistency: A Unified Graph Learning Framework for Multi-view Clustering (ICDM 2019) 
 
+### News
+* [Aug 2020] An improved version of the ICDM paper is released at [https://arxiv.org/abs/2008.10208](https://arxiv.org/abs/2008.10208).
+
 
 ### Preparation
 * **Windows 64bit**: 
